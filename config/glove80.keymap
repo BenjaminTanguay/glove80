@@ -38,14 +38,6 @@
             bindings = <&mo 1>, <&to 1>;
         };
 
-//        N2_US: N2_US {
-//            compatible = "zmk,behavior-mod-morph";
-//            label = "N2_US";
-//            #binding-cells = <0>;
-//            bindings = <&kp N2>,<&kp FR_AT>;
-//            mods = <(MOD_LSFT|MOD_RSFT)>;
-//        };
-
         gresc2: grave_escape {
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_ESCAPE";
