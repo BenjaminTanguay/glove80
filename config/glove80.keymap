@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "N2_US";
             #binding-cells = <0>;
-            bindings = <&kp N2>, <&kp FR_AT>;
+            bindings = <&kp ESC>, <&kp FR_AT>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
         };
     };
