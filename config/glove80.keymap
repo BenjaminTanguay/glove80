@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_US";
             #binding-cells = <0>;
-            bindings = <&kp N2>, <&kp FR_TILDE>;
+            bindings = <&kp FR_GRAVE>, <&kp FR_TILDE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
