@@ -134,7 +134,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             global-quick-tap-ms = <150>;
-            bindings = <&kp N>, <&kp FR_AIGU>;
+            bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <38>;
             hold-trigger-on-release;
         };
@@ -205,12 +205,12 @@
 
         base_layer {
             bindings = <
-     &kp F1    &kp F2   &kp F3    &kp F4     &kp F5                                                                                  &kp F6     &kp F7       &kp F8       &kp F9      &kp F10
-  &kp EQUAL    &kp N1   &N2_US    &N3_US     &kp N4  &kp N5                                                                  &N6_US  &kp N7     &kp N8       &kp N9       &kp N0    &kp MINUS
-    &kp TAB     &kp Q    &kp G     &kp M      &kp L   &kp W                                                                   &kp Y   &kp F      &kp U        &kp B     &kp SEMI   &BSLASH_US
-    &kp ESC     &kp D    &kp S     &kp T &DEAD_AIGU   &kp R                                                                   &kp I   &kp A      &kp E        &kp O        &kp H    &QUOTE_US
-  &GRAVE_US     &kp Z    &kp X     &kp C      &kp V   &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P  &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
- &magic 2 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT           &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &LSQUARE_US  &LSQUARE_US    &kp PG_DN
+     &kp F1    &kp F2   &kp F3    &kp F4     &kp F5                                                                                      &kp F6  &kp F7     &kp F8       &kp F9      &kp F10
+  &kp EQUAL    &kp N1   &N2_US    &N3_US     &kp N4              &kp N5                                                                  &N6_US  &kp N7     &kp N8       &kp N9       &kp N0    &kp MINUS
+    &kp TAB     &kp Q    &kp G     &kp M      &kp L               &kp W                                                                   &kp Y   &kp F      &kp U        &kp B     &kp SEMI   &BSLASH_US
+    &kp ESC     &kp D    &kp S     &kp T &DEAD_AIGU N FR_AIGU     &kp R                                                                   &kp I   &kp A      &kp E        &kp O        &kp H    &QUOTE_US
+  &GRAVE_US     &kp Z    &kp X     &kp C      &kp V               &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P  &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
+ &magic 2 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT            &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &LSQUARE_US  &LSQUARE_US    &kp PG_DN
             >;
         };
 
