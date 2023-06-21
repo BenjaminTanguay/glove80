@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_US";
             #binding-cells = <0>;
-            bindings = <&kp FR_GRAVE>, <&kp FR_TILDE>;
+            bindings = <&SINGLE_GRAVE>, <&kp FR_TILDE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -74,7 +74,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "LSQUARE_US";
             #binding-cells = <0>;
-            bindings = <&kp FR_LBKT>, <&kp FR_LBRC>;
+            #bindings = <&kp FR_LBKT>, <&kp FR_LBRC>;
+            bindings = <&kp A>, <&kp B>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -131,8 +132,8 @@
             label = "ACCENT_1";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <38>;
@@ -144,8 +145,8 @@
             label = "ACCENT_2";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <37>;
@@ -157,8 +158,8 @@
             label = "ACCENT_3";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <36>;
@@ -170,8 +171,8 @@
             label = "ACCENT_4";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <35>;
@@ -183,10 +184,10 @@
             label = "CED";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&C_CEDILLE>, <&kp>;
             hold-trigger-key-positions = <49>;
             hold-trigger-on-release;
         };
@@ -195,13 +196,15 @@
     combos {
         compatible = "zmk,combos";
         OPEN_PARENTHESIS {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
+            global-quick-tap-ms = <150>;
             key-positions = <26 29>;
             bindings = <&kp FR_LPAR>;
         };
 
         CLOSE_PARENTHESIS {
-            timeout-ms = <50>;
+            timeout-ms = <100>;
+            global-quick-tap-ms = <150>;
             key-positions = <26 30>;
             bindings = <&kp FR_RPAR>;
         };
@@ -223,6 +226,24 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings = <&macro_tap &kp FR_CIRC &kp FR_CIRC &kp BSPC>;
+        };
+
+        SINGLE_GRAVE: SINGLE_GRAVE {
+            label = "SINGLE_GRAVE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp FR_GRAVE &kp FR_GRAVE &kp BSPC>;
+        };
+
+        C_CEDILLE: C_CEDILLE {
+            label = "C_CEDILLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp FR_CED &kp C>;
         };
 
         bt_0: bt_profile_macro_0 {
