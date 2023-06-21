@@ -66,7 +66,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "N6_US";
             #binding-cells = <0>;
-            bindings = <&kp N6>, <&kp FR_CIRC>;
+            bindings = <&kp N6>, <&SINGLE_KARET>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -194,14 +194,15 @@
 
     combos {
         compatible = "zmk,combos";
-        open_parenthesis {
+        OPEN_PARENTHESIS {
             timeout-ms = <50>;
-            key-positions = <14 17>;
+            key-positions = <26 29>;
             bindings = <&kp FR_LPAR>;
         };
-        close_parenthesis {
+
+        CLOSE_PARENTHESIS {
             timeout-ms = <50>;
-            key-positions = <14 18>;
+            key-positions = <26 30>;
             bindings = <&kp FR_RPAR>;
         };
     };
@@ -213,6 +214,15 @@
             #binding-cells = <0>;
             bindings
                 = <&rgb_ug RGB_STATUS>;
+        };
+
+        SINGLE_KARET: SINGLE_KARET {
+            label = "SINGLE_KARET";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&macro_tap &kp FR_CIRC &kp FR_CIRC &kp BSPC>;
         };
 
         bt_0: bt_profile_macro_0 {
@@ -276,7 +286,7 @@
     &kp TAB     &kp Q             &kp G              &kp M               &kp L               &kp W                                                                   &kp Y   &kp F      &kp U        &kp B     &kp SEMI   &BSLASH_US
     &kp ESC    &ACC_4 FR_DIES D  &ACC_3 FR_CIRC S   &ACC_2 FR_AIGU T    &ACC_1 FR_GRAVE N    &kp R                                                                   &kp I   &kp A      &kp E        &kp O        &kp H    &QUOTE_US
   &GRAVE_US     &kp Z             &kp X               &CED FR_CED C      &kp V               &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P  &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
- &magic 2 0  &kp HOME           &kp END           &kp LEFT           &kp RIGHT                       &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &kp A  &RSQUARE_US    &kp PG_DN
+ &magic 2 0  &kp HOME           &kp END           &kp LEFT           &kp RIGHT                       &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &LSQUARE_US  &RSQUARE_US    &kp PG_DN
             >;
         };
 
