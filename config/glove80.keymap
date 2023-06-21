@@ -75,7 +75,7 @@
             label = "LSQUARE_US";
             #binding-cells = <0>;
             #bindings = <&kp FR_LBKT>, <&kp FR_LBRC>;
-            bindings = <&kp A>, <&kp B>;
+            bindings = <&kp A>, <&kp FR_LBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -196,14 +196,14 @@
     combos {
         compatible = "zmk,combos";
         OPEN_PARENTHESIS {
-            timeout-ms = <100>;
+            timeout-ms = <125>;
             global-quick-tap-ms = <150>;
             key-positions = <26 29>;
             bindings = <&kp FR_LPAR>;
         };
 
         CLOSE_PARENTHESIS {
-            timeout-ms = <100>;
+            timeout-ms = <125>;
             global-quick-tap-ms = <150>;
             key-positions = <26 30>;
             bindings = <&kp FR_RPAR>;
