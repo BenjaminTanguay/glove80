@@ -74,8 +74,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "LSQUARE_US";
             #binding-cells = <0>;
-            #bindings = <&kp FR_LBKT>, <&kp FR_LBRC>;
-            bindings = <&kp LEFT_BRACE>, <&kp FR_LBRC>;
+            bindings = <&kp FR_LBKT>, <&kp FR_LBRC>;
+            #bindings = <&kp LEFT_BRACE>, <&kp FR_LBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
