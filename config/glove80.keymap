@@ -24,6 +24,10 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/keyboards/keys_fr_cafr.h>
 
+#define DEFAULT  0
+#define SYMBOL   1
+#define NUM_PAD  2
+
 
 / {
     /* Glove80 system behavior & macros */
@@ -190,24 +194,47 @@
             hold-trigger-key-positions = <49>;
             hold-trigger-on-release;
         };
-    };
 
-    combos {
-        compatible = "zmk,combos";
-        OPEN_PARENTHESIS {
-            timeout-ms = <125>;
+        KP_OR_SYMBOLS: KP_OR_SYMBOLS {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KP_OR_SYMBOLS";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
-            key-positions = <26 29>;
-            bindings = <&kp FR_LPAR>;
+            bindings = <&TO_SYMBOL>, <&kp>;
+            hold-trigger-key-positions = <25>;
+            hold-trigger-on-release;
         };
 
-        CLOSE_PARENTHESIS {
-            timeout-ms = <125>;
+        KP_OR_SYMBOLS_MO: KP_OR_SYMBOLS_MO {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KP_OR_SYMBOLS_MO";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
-            key-positions = <26 30>;
-            bindings = <&kp FR_RPAR>;
+            bindings = <&MO_SYMBOL>, <&kp>;
+            hold-trigger-key-positions = <26>;
+            hold-trigger-on-release;
+        };
+
+        KP_OR_NUMPAD: KP_OR_NUMPAD {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KP_OR_NUMPAD";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <175>;
+            quick-tap-ms = <150>;
+            global-quick-tap-ms = <150>;
+            bindings = <&TO_NUM_PAD>, <&kp>;
+            hold-trigger-key-positions = <24>;
+            hold-trigger-on-release;
         };
     };
+
 
     macros {
         rgb_ug_status_macro: rgb_ug_status_macro_0 {
@@ -216,6 +243,33 @@
             #binding-cells = <0>;
             bindings
                 = <&rgb_ug RGB_STATUS>;
+        };
+
+        TO_NUM_PAD: TO_NUM_PAD {
+            label = "TO_NUM_PAD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&to NUM_PAD>;
+        };
+
+        TO_SYMBOL: TO_SYMBOL {
+            label = "TO_SYMBOL";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&to SYMBOL>;
+        };
+
+        MO_SYMBOL: MO_SYMBOL {
+            label = "MO_SYMBOL";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings = <&mo SYMBOL>;
         };
 
         SINGLE_KARET: SINGLE_KARET {
@@ -301,23 +355,34 @@
 
         base_layer {
             bindings = <
-     &kp F1    &kp F2            &kp F3             &kp F4              &kp F5                                                                                      &kp F6  &kp F7     &kp F8       &kp F9      &kp F10
-  &kp EQUAL    &kp N1            &N2_US             &N3_US              &kp N4              &kp N5                                                                  &N6_US  &kp N7     &kp N8       &kp N9       &kp N0    &kp MINUS
-    &kp TAB     &kp Q             &kp G              &kp M               &kp L               &kp W                                                                   &kp Y   &kp F      &kp U        &kp B     &kp SEMI   &BSLASH_US
-    &kp ESC    &ACC_4 FR_DIES D  &ACC_3 FR_CIRC S   &ACC_2 FR_AIGU T    &ACC_1 FR_GRAVE N    &kp R                                                                   &kp I   &kp A      &kp E        &kp O        &kp H    &QUOTE_US
-  &GRAVE_US     &kp Z             &kp X               &CED FR_CED C      &kp V               &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P  &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
- &magic 2 0  &kp HOME           &kp END           &kp LEFT           &kp RIGHT                       &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &LSQUARE_US  &RSQUARE_US    &kp PG_DN
+     &kp F1    &kp F2                   &kp F3                    &kp F4                       &kp F5                                                                                       &kp F6  &kp F7     &kp F8       &kp F9      &kp F10
+  &kp EQUAL    &kp N1                   &N2_US                    &N3_US                       &kp N4               &kp N5                                                                  &N6_US  &kp N7     &kp N8       &kp N9       &kp N0    &kp MINUS
+    &kp TAB     &kp Q            &KP_OR_NUMPAD G          &KP_OR_SYMBOLS M          &KP_OR_SYMBOLS_MO L              &kp W                                                                   &kp Y   &kp F      &kp U        &kp B     &kp SEMI   &BSLASH_US
+    &kp ESC    &ACC_4 FR_DIES D         &ACC_3 FR_CIRC S          &ACC_2 FR_AIGU T             &ACC_1 FR_GRAVE N     &kp R                                                                   &kp I   &kp A      &kp E        &kp O        &kp H    &QUOTE_US
+  &GRAVE_US     &kp Z                    &kp X                      &CED FR_CED C               &kp V                &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P  &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
+ &magic 2 0  &kp HOME                  &kp END                  &kp LEFT                    &kp RIGHT                        &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &LSQUARE_US  &RSQUARE_US    &kp PG_DN
             >;
         };
 
-        layer_Lower {
+        layer_Programming {
             bindings = <
- &kp C_BRI_DN  &kp C_BRI_UP      &kp C_PREV      &kp C_NEXT         &kp C_PP                                                                                    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP            &none  &kp PAUSE_BREAK
-       &trans         &none           &none           &none            &none   &kp HOME                                                   &kp LEFT_PARENTHESIS  &kp KP_NUM  &kp KP_EQUAL  &kp KP_SLASH  &kp KP_MULTIPLY  &kp PRINTSCREEN
-       &trans         &none           &none    &kp UP_ARROW            &none    &kp END                                                  &kp RIGHT_PARENTHESIS   &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS   &kp SCROLLLOCK
-       &trans         &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PG_UP                                                            &kp PERCENT   &kp KP_N4     &kp KP_N5     &kp KP_N6      &kp KP_PLUS            &none
-       &trans     &kp K_APP           &none         &kp F11          &kp F12  &kp PG_DN  &trans  &trans   &to 0  &trans  &trans  &trans              &kp COMMA   &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_ENTER           &trans
-   &magic 2 0      &kp CAPS         &kp INS         &kp F11          &kp F12             &trans  &trans  &trans  &trans  &trans  &trans                          &kp KP_N0     &kp KP_N0    &kp KP_DOT     &kp KP_ENTER           &trans
+    &kp F11      &kp F12    &kp C_BRI_DN    &kp C_BRI_UP         &kp C_PP                                                                                 &kp C_MUTE     &kp C_VOL_DN     &kp C_VOL_UP         &none   &none
+     &trans        &none           &none         &kp INS            &none      &none                                                         &none     &SINGLE_GRAVE     &kp FR_TILDE            &none         &none   &none
+     &trans      &kp TAB        &kp HOME    &kp UP_ARROW          &kp END  &kp PG_UP                                                         &none       &kp FR_LPAR      &kp FR_RPAR        &kp FR_LT     &kp FR_GT   &none
+     &trans  &to DEFAULT  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PG_DN                                                   &kp FR_PLUS       &kp FR_LBRC      &kp FR_RBRC     &kp FR_EQUAL  &kp FR_MINUS   &none
+     &trans        &none       &kp LCTRL       &kp LSHFT         &kp LALT  &kp PSCRN  &trans  &trans   &to 0  &trans  &trans  &trans         &none       &kp FR_LBKT      &kp FR_RBKT  &kp FR_BCK_SLSH   &kp FR_PIPE  &trans
+ &magic 2 0       &trans          &trans          &trans           &trans             &trans  &trans  &trans  &trans  &trans  &trans                          &trans           &trans            &none         &none  &trans
+            >;
+        };
+
+        layer_Numpad {
+            bindings = <
+     &trans       &trans     &trans     &trans     &trans                                                                        &trans     &trans     &trans   &kp FSLH   &none
+     &trans        &none      &none    &kp INS      &none      &none                                                   &none  &kp KP_N7  &kp KP_N8  &kp KP_N9   &kp STAR   &none
+     &trans      &kp TAB   &kp HOME     &kp UP    &kp END  &kp PG_UP                                                   &none  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp MINUS   &none
+     &trans  &to DEFAULT   &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN                                                   &none  &kp KP_N1  &kp KP_N2  &kp KP_N3   &kp PLUS   &none
+     &trans        &none  &kp LCTRL  &kp LSHFT   &kp LALT  &kp PSCRN  &trans  &trans  &trans  &trans  &trans  &trans   &none  &kp KP_N0  &kp KP_N0    &kp DOT      &none  &trans
+ &magic 2 0       &trans     &trans     &trans     &trans             &trans  &trans  &trans  &trans  &trans  &trans             &trans     &trans      &none      &none  &trans
             >;
         };
 
@@ -325,9 +390,9 @@
             bindings = <
   &bt BT_CLR            &none            &none            &none            &none                                                                                  &none   &none   &none   &none  &bt BT_CLR_ALL
        &none            &none            &none            &none            &none            &none                                                         &none   &none   &none   &none   &none           &none
-      &trans  &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                         &none   &none   &none   &none   &none           &none
+       &none  &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                         &none   &none   &none   &none   &none           &none
  &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                         &none   &none   &none   &none   &none     &bootloader
-       &none            &none            &none            &none            &none            &none   &bt_2   &bt_3         &none   &none   &none   &none   &none   &none   &none   &none   &none           &none
+      &reset            &none            &none            &none            &none            &none   &bt_2   &bt_3         &none   &none   &none   &none   &none   &none   &none   &none   &none          &reset
        &none            &none            &none            &none            &none                    &bt_0   &bt_1  &out OUT_USB   &none   &none   &none           &none   &none   &none   &none           &none
             >;
         };
