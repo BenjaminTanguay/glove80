@@ -27,6 +27,16 @@
 #define DEFAULT  0
 #define SYMBOL   1
 #define NUMPAD  2
+#define VOWEL_A 42
+#define VOWEL_E 43
+#define VOWEL_I 41
+#define VOWEL_O 44
+#define VOWEL_U 31
+#define AIGU_VOWELS VOWEL_E
+#define GRAVE_VOWELS VOWEL_A VOWEL_E VOWEL_U
+#define CIRC_VOWELS VOWEL_A VOWEL_E VOWEL_I VOWEL_O VOWEL_U
+#define TREMA_VOWELS VOWEL_E VOWEL_I VOWEL_U
+#d
 
 
 / {
@@ -139,7 +149,7 @@
             quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <38>;
+            hold-trigger-key-positions = <GRAVE_VOWELS>;
             hold-trigger-on-release;
         };
 
@@ -152,7 +162,7 @@
             quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <37>;
+            hold-trigger-key-positions = <AIGU_VOWELS>;
             hold-trigger-on-release;
         };
 
@@ -165,7 +175,7 @@
             quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <36>;
+            hold-trigger-key-positions = <CIRC_VOWELS>;
             hold-trigger-on-release;
         };
 
@@ -178,7 +188,7 @@
             quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <35>;
+            hold-trigger-key-positions = <TREMA_VOWELS>;
             hold-trigger-on-release;
         };
 
@@ -190,9 +200,17 @@
             tapping-term-ms = <175>;
             quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
-            bindings = <&C_CEDILLE>, <&kp>;
+            bindings = <&CAPITAL_CED_OR_NOT>, <&kp>;
             hold-trigger-key-positions = <49>;
             hold-trigger-on-release;
+        };
+
+        CAPITAL_CED_OR_NOT: CAPITAL_CED_OR_NOT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CAPITAL_CED_OR_NOT";
+            #binding-cells = <0>;
+            bindings = <&CAPITAL_C_CEDILLE>, <&C_CEDILLE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         KP_OR_SYMBOLS: KP_OR_SYMBOLS {
@@ -270,6 +288,19 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings = <&macro_tap &kp FR_CED &kp C>;
+        };
+
+        CAPITAL_C_CEDILLE: CAPITAL_C_CEDILLE {
+            label = "CAPITAL_C_CEDILLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_tap &kp FR_CED>,
+                <&macro_press &kp LSHFT>,
+                <&macro_tap &kp C>,
+                <&macro_release &kp LSHFT>;
         };
 
         bt_0: bt_profile_macro_0 {
