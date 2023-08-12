@@ -301,8 +301,8 @@
                 <&macro_release &kp LCTRL>;
         };
 
-        UNDO: UNDO {
-            label = "UNDO";
+        UNDO_MACRO: UNDO_MACRO {
+            label = "UNDO_MACRO";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
@@ -313,8 +313,8 @@
                 <&macro_release &kp LCTRL>;
         };
 
-        REDO: REDO {
-            label = "REDO";
+        REDO_MACRO: REDO_MACRO {
+            label = "REDO_MACRO";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
@@ -454,7 +454,7 @@
      &trans        &none       &none        &none      &none        &none                                                      &none      &none    &kp INS      &none       &none   &none
      &trans      &none         &none        &none      &none        &none                                                      &none   &kp HOME     &kp UP    &kp END   &kp PG_UP   &none
      &trans  &to DEFAULT    &kp LALT     kp LCTRL  &kp LSHFT        &none                                                      &none   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN   &none
-      &REDO        &UNDO  &CUT_MACRO  &COPY_MACRO     &PASTE  &PASTE_HIST  &trans  &trans  &trans  &trans  &trans  &trans      &none      &none      &none      &none       &none  &trans
+&REDO_MACRO  &UNDO_MACRO  &CUT_MACRO  &COPY_MACRO     &PASTE  &PASTE_HIST  &trans  &trans  &trans  &trans  &trans  &trans      &none      &none      &none      &none       &none  &trans
  &magic 2 0       &trans      &trans       &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans      &none      &none      &trans
             >;
         };
