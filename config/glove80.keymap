@@ -265,8 +265,8 @@
                 <&macro_release &kp LSHFT>;
         };
 
-        TROLOLO: TROLOLO {
-            label = "TROLOLO";
+        COPY_MACRO: COPY_MACRO {
+            label = "COPY_MACRO";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
@@ -289,8 +289,8 @@
                 <&macro_release &kp LCTRL>;
         };
 
-        CUT: CUT {
-            label = "CUT";
+        CUT_MACRO: CUT_MACRO {
+            label = "CUT_MACRO";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
@@ -450,12 +450,12 @@
 
         layer_Navigation {
             bindings = <
-    &kp F11      &kp F12     &trans     &trans     &trans                                                                             &trans     &trans     &trans      &trans  &trans
-     &trans        &none      &none      &none      &none        &none                                                      &none      &none    &kp INS      &none       &none   &none
-     &trans      &none        &none      &none      &none        &none                                                      &none   &kp HOME     &kp UP    &kp END   &kp PG_UP   &none
-     &trans  &to DEFAULT   &kp LALT   kp LCTRL  &kp LSHFT        &none                                                      &none   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN   &none
-      &REDO        &UNDO       &CUT      &COPY     &PASTE  &PASTE_HIST  &trans  &trans  &trans  &trans  &trans  &trans      &none      &none      &none      &none       &none  &trans
- &magic 2 0       &trans     &trans     &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans      &none      &none      &trans
+    &kp F11      &kp F12      &trans       &trans     &trans                                                                             &trans     &trans     &trans      &trans  &trans
+     &trans        &none       &none        &none      &none        &none                                                      &none      &none    &kp INS      &none       &none   &none
+     &trans      &none         &none        &none      &none        &none                                                      &none   &kp HOME     &kp UP    &kp END   &kp PG_UP   &none
+     &trans  &to DEFAULT    &kp LALT     kp LCTRL  &kp LSHFT        &none                                                      &none   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN   &none
+      &REDO        &UNDO  &CUT_MACRO  &COPY_MACRO     &PASTE  &PASTE_HIST  &trans  &trans  &trans  &trans  &trans  &trans      &none      &none      &none      &none       &none  &trans
+ &magic 2 0       &trans      &trans       &trans     &trans               &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans      &none      &none      &trans
             >;
         };
 
