@@ -208,7 +208,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "CAPITAL_CED_OR_NOT";
             #binding-cells = <0>;
-            bindings = <&CAPITAL_C_CEDILLE>, <&C_CEDILLE>;
+            bindings = <&C_CEDILLE>, <&CAPITAL_C_CEDILLE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
