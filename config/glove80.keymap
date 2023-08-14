@@ -453,8 +453,8 @@
     &kp ESC    &kp N1             &N2_US              &N3_US                    &kp N4                         &kp N5                                                                  &N6_US  &kp N7       &kp N8       &kp N9       &kp N0   &BSLASH_US
   &kp EQUAL     &kp Q              &kp G               &kp M                     &kp L                          &kp W                                                                   &kp Y   &kp F        &kp U        &kp B     &kp SEMI    &kp MINUS
     &kp TAB    &ACC_4 FR_DIES D   &ACC_3 FR_CIRC S    &ACC_2 FR_AIGU T          &ACC_1 FR_GRAVE N               &kp R                                                                   &kp I   &kp A        &kp E        &kp O        &kp H    &QUOTE_US
-  &GRAVE_US     &kp Z              &kp X                &CED FR_CED C            &kp V                          &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P    &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
- &magic 2 0   &METHOD          &CONSTANT           &VARIABLE                 &TO_OR_MO NAVIGATION NAVIGATION           &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE     &LSQUARE_US  &RSQUARE_US    &kp PSCRN     &kp DOWN    &kp PG_DN
+  &GRAVE_US     &kp Z              &kp X                &CED C            &kp V                          &kp J  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   &kp K   &kp P    &COMMA_US   &PERIOD_US    &SLASH_US    &kp PG_UP
+ &magic 2 0   &METHOD          &CONSTANT           &VARIABLE                 &TO_OR_MO NAVIGATION NAVIGATION            &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE     &LSQUARE_US  &RSQUARE_US    &kp PSCRN     &kp DOWN    &kp PG_DN
             >;
         };
 
